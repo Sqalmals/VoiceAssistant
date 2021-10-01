@@ -44,7 +44,7 @@ public class Main {
 			return input;
 	}
 
-	// Filters input and throws out unneccessary data
+	// Filters input and throws out unnecessary data
 	public static void filter(String in) {
 		if (in.contains("\"text\"")) {
 			isCurrent = true;
