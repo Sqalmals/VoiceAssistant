@@ -1,0 +1,5 @@
+close <START:program> edge <END>
+stop <START:program> edge <END>
+stop <START:program> microsoft edge <END>
+close <START:program> note pad <END>
+close the program <START:program> note pad <END>

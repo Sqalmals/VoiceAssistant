@@ -1,0 +1,3 @@
+edge/microsoft edge;C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe;msedge.exe
+note pad;C:\Windows\system32\notepad.exe;notepad.exe
+minecraft;C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Minecraft Launcher\Minecraft Launcher.lnk;MinecraftLauncher.exe

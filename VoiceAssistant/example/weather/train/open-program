@@ -1,0 +1,5 @@
+open <START:program> edge <END>
+start <START:program> edge <END>
+start <START:program> microsoft edge <END>
+open <START:program> note pad <END>
+open the program <START:program> note pad <END>
