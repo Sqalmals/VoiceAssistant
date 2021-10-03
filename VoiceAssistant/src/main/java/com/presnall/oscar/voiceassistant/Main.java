@@ -8,6 +8,7 @@ public class Main {
 
 	private static IntentTrainer it = new IntentTrainer();
 	private static VoiceRecognizer vr = new VoiceRecognizer();
+	private static WakeWordDetector wd = new WakeWordDetector();
 
 	// processes input and throws out unnecessary data
 	public static void process(String in) throws InterruptedException, IOException {
@@ -15,14 +16,18 @@ public class Main {
 		if (output.equals("stop")) {
 			it.stop();
 			vr.stop();
+			wd.stop();
 		}
 		getIntent(output);
+		wd.activate();
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		it.start(); // starts the intent processing thread
 
 		vr.start(); // starts the voice recognition thread
+		
+		wd.start();
 	}
 
 	private static void getIntent(String in) throws InterruptedException, IOException {
@@ -35,6 +40,10 @@ public class Main {
 		System.out.println(String.format("Intent: %s, Argument: %s", intentAndArgument[0], intentAndArgument[1]));
 		// sends intent to command handler
 		CommandHandler.runCommandWithIntent(intentAndArgument[0], intentAndArgument[1]);
+	}
+	
+	public static void begin() {
+		vr.activate();
 	}
 
 }
