@@ -3,6 +3,7 @@ package com.presnall.oscar.voiceassistant;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CommandHandler {
@@ -43,6 +44,12 @@ public class CommandHandler {
 					Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM \"" + processName);
 					break;
 				}
+			}
+			break;
+		case "current-weather":
+			if(argument.length() <= 0 || argument.equals("now") || argument.equals("today")) {
+				String[] weather = WeatherHandler.getWeather("Mobile%2C%20AL", LocalDate.now().toString(), LocalDate.now().toString(), "us", "SE9N9CDNS9TH62N5TYJEWXZAR").split(";");
+				System.out.printf("In %s, the high for today is %s and the low is %s\n", "Mobile", weather[1], weather[2]);
 			}
 			break;
 		}
