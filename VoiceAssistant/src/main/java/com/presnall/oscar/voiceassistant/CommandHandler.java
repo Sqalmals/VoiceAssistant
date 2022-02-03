@@ -22,10 +22,12 @@ public class CommandHandler {
 				if (programs.get(i)[0].equals(argument) && programs.get(i).length < 4) {
 					Runtime.getRuntime().exec("cmd.exe /c start \"\" \"" + programs.get(i)[1] + "\"");
 					// System.out.println("cmd.exe /c start \"\" \"" + programs.get(i)[1] + "\"");
+					TextToSpeech.speak("Opened " + argument);
 					break;
 				} else if (programs.get(i).length == 4
 						&& (programs.get(i)[0].equals(argument) || programs.get(i)[1].equals(argument))) {
 					Runtime.getRuntime().exec("cmd.exe /c start \"\" \"" + programs.get(i)[2] + "\"");
+					TextToSpeech.speak("Opened " + argument);
 					break;
 				}
 			}
@@ -39,9 +41,11 @@ public class CommandHandler {
 				String processName = programs.get(i)[programs.get(i).length - 1];
 				if (programs.get(i)[0].equals(argument) && programs.get(i).length < 4) {
 					Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM \"" + processName);
+					TextToSpeech.speak("Closed " + argument);
 					break;
 				} else if (programs.get(i).length == 4 && (programs.get(i)[0].equals(argument) || programs.get(i)[1].equals(argument))) {
 					Runtime.getRuntime().exec("cmd.exe /c TASKKILL /IM \"" + processName);
+					TextToSpeech.speak("Closed " + argument);
 					break;
 				}
 			}
@@ -50,9 +54,14 @@ public class CommandHandler {
 			if(argument.length() <= 0 || argument.equals("now") || argument.equals("today")) {
 				String[] weather = WeatherHandler.getWeather("Mobile%2C%20AL", LocalDate.now().toString(), LocalDate.now().toString(), "us", "SE9N9CDNS9TH62N5TYJEWXZAR").split(";");
 				System.out.printf("In %s, the high for today is %s and the low is %s\n", "Mobile", weather[1], weather[2]);
+				TextToSpeech.speak(String.format("In %s, the high for today is %s and the low is %s\n", "Mobile", weather[1], weather[2]));
 			}
 			break;
+		case "say":
+			TextToSpeech.speak(argument);
+			break;
 		}
+		
 	}
 
 	private static ArrayList<String[]> readFileByLine(String fileName) {

@@ -27,7 +27,7 @@ public class Main {
 
 		vr.start(); // starts the voice recognition thread
 		
-		wd.start();
+		wd.start(); // starts wake word detector
 	}
 
 	private static void getIntent(String in) throws InterruptedException, IOException {

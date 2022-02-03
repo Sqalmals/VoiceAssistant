@@ -1,0 +1,5 @@
+say <START:statement> edge <END>
+say <START:statement> hello world <END>
+say <START:statement> this is a test this is only a test <END>
+say <START:statement> the quick brown fox jumped over the lazy dog <END>
+simon says <START:statement> pizza is good <END>
