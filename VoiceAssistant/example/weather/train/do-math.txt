@@ -1,0 +1,6 @@
+what is <START:equation> six times eight <END>
+solve <START:equation> twenty two minus five <END>
+solve the equation <START:equation> twenty four over five <END>
+solve the equation <START:equation> twenty four minus one <END>
+solve <START:equation> six minus two <END>
+solve <START:equation> one hundred eighty eight plus six <END>

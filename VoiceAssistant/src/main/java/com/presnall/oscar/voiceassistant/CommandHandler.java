@@ -60,6 +60,10 @@ public class CommandHandler {
 		case "say":
 			TextToSpeech.speak(argument);
 			break;
+		case "do-math":
+			argument = argument.trim().replaceAll("too", "two");
+			TextToSpeech.speak(String.format("%s is %s", argument, MathParser.parseMath(argument)));
+			System.out.println(String.format("%s is %s", argument, MathParser.parseMath(argument)));
 		}
 		
 	}
