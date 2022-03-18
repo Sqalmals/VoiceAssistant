@@ -53,8 +53,8 @@ public class CommandHandler {
 		case "current-weather":
 			if(argument.length() <= 0 || argument.equals("now") || argument.equals("today")) {
 				String[] weather = WeatherHandler.getWeather("Mobile%2C%20AL", LocalDate.now().toString(), LocalDate.now().toString(), "us", "SE9N9CDNS9TH62N5TYJEWXZAR").split(";");
-				System.out.printf("In %s, the high for today is %s and the low is %s\n", "Mobile", weather[1], weather[2]);
-				TextToSpeech.speak(String.format("In %s, the high for today is %s and the low is %s\n", "Mobile", weather[1], weather[2]));
+				System.out.printf("In %s, right now it is %s degrees. The high for today is %s and the low is %s\n", "Mobile", weather[5], weather[1], weather[2]);
+				TextToSpeech.speak(String.format("In %s, right now it is %s degrees. The high for today is %s and the low is %s\n", "Mobile", weather[5], weather[1], weather[2]));
 			}
 			break;
 		case "say":
@@ -62,8 +62,8 @@ public class CommandHandler {
 			break;
 		case "do-math":
 			argument = argument.trim().replaceAll("too", "two");
-			TextToSpeech.speak(String.format("%s is %s", argument, MathParser.parseMath(argument)));
 			System.out.println(String.format("%s is %s", argument, MathParser.parseMath(argument)));
+			TextToSpeech.speak(String.format("%s is %s", argument, MathParser.parseMath(argument)));
 		}
 		
 	}

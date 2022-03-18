@@ -42,6 +42,8 @@ public class WeatherHandler {
 		try {
 			builder = new URIBuilder(requestBuilder.toString());
 			builder.setParameter("unitGroup", unitGroup).setParameter("key", apiKey);
+			
+			//System.out.println(builder.toString());
 
 			HttpGet get = new HttpGet(builder.build());
 
@@ -84,8 +86,9 @@ public class WeatherHandler {
 				double mintemp = dayValue.getDouble("tempmin");
 				double pop = dayValue.getDouble("precip");
 				String source = dayValue.getString("source");
-				return String.format("%s;%.1f;%.1f;%.1f;%s%n", datetime.format(DateTimeFormatter.ISO_LOCAL_DATE),
-						maxtemp, mintemp, pop, source);
+				double temp = dayValue.getDouble("temp");
+				return String.format("%s;%.1f;%.1f;%.1f;%s%n;%.1f", datetime.format(DateTimeFormatter.ISO_LOCAL_DATE),
+						maxtemp, mintemp, pop, source, temp);
 			}
 		} catch (UnknownHostException e) {
 			return "Connection Error";
